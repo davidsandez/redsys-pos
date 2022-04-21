@@ -32,6 +32,7 @@ class RedSys {
     currency,
     transactionType,
     terminal = "1",
+    idOper
     /* merchantURL,
     successURL,
     errorURL */
@@ -56,6 +57,7 @@ class RedSys {
       DS_MERCHANT_CURRENCY: currency,
       DS_MERCHANT_TRANSACTIONTYPE: transactionType,
       DS_MERCHANT_TERMINAL: terminal,
+      DS_MERCHANT_ORDER: idOper
      /*  DS_MERCHANT_MERCHANTURL: merchantURL || "",
       DS_MERCHANT_URLOK: successURL || "",
       DS_MERCHANT_URLKO: errorURL || "" */
