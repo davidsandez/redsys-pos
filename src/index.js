@@ -32,15 +32,15 @@ class RedSys {
     currency,
     transactionType,
     terminal = "1",
-    merchantURL,
+    /* merchantURL,
     successURL,
-    errorURL
+    errorURL */
   }) {
     if (!amount) throw new Error("The amount to charge is mandatory");
     if (!merchantCode) throw new Error("The merchant code is mandatory");
     if (!transactionType) throw new Error("The transcation type is mandatory");
-    if (!successURL) throw new Error("The successURL is mandatory");
-    if (!errorURL) throw new Error("The errorURL is mandatory");
+    //if (!successURL) throw new Error("The successURL is mandatory");
+    //if (!errorURL) throw new Error("The errorURL is mandatory");
 
     if (!currency) currency = CURRENCIES.EUR;
     if (!orderReference) {
@@ -56,9 +56,9 @@ class RedSys {
       DS_MERCHANT_CURRENCY: currency,
       DS_MERCHANT_TRANSACTIONTYPE: transactionType,
       DS_MERCHANT_TERMINAL: terminal,
-      DS_MERCHANT_MERCHANTURL: merchantURL || "",
+     /*  DS_MERCHANT_MERCHANTURL: merchantURL || "",
       DS_MERCHANT_URLOK: successURL || "",
-      DS_MERCHANT_URLKO: errorURL || ""
+      DS_MERCHANT_URLKO: errorURL || "" */
     };
 
     const Ds_MerchantParameters = new Buffer(
