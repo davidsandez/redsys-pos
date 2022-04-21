@@ -63,7 +63,7 @@ class RedSys {
       DS_MERCHANT_URLKO: errorURL || "" */
     };
 
-    const Ds_MerchantParameters = new Buffer(
+    const Ds_MerchantParameters = Buffer.from(
       JSON.stringify(paramsObj)
     ).toString("base64");
     const derivateKey = this.encrypt(orderReference);
@@ -128,8 +128,8 @@ class RedSys {
 
   encrypt(strPayload) {
     // 3DES (base64)
-    var keyBuffer = new Buffer(this.merchantSecretKey, "base64");
-    var iv = new Buffer(8);
+    var keyBuffer = Buffer.from(this.merchantSecretKey, "base64");
+    var iv = Buffer.from(8);
     iv.fill(0);
     var crypt = crypto.createCipheriv("des-ede3-cbc", keyBuffer, iv);
     crypt.setAutoPadding(false);
@@ -144,7 +144,7 @@ class RedSys {
     if (typeof strPayload !== "string" || typeof strKey !== "string")
       throw new Error("Invalid parameters");
 
-    const hash = crypto.createHmac("sha256", new Buffer(strKey, "base64"));
+    const hash = crypto.createHmac("sha256", Buffer.from(strKey, "base64"));
     hash.update(strPayload);
 
     return hash.digest("base64");
